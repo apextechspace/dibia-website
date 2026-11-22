@@ -132,14 +132,26 @@
     .work-item { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 16px 22px; align-items: baseline; border-top: 1px solid #9daabd; padding-block: 22px; }
     .work-item h3 { font-size: clamp(1.32rem, 2.1vw, 1.85rem); font-weight: 620; letter-spacing: -.04em; margin: 0; }
     .work-item p, .speaking-copy > p:not(.eyebrow) { max-width: 46ch; color: #4d5563; font-size: clamp(1rem, 1.28vw, 1.19rem); line-height: 1.68; }
-    .books { background: var(--light); color: var(--ink); padding: clamp(64px, 8vw, 124px) var(--gutter); }
+    .books { background: #f7f6f2; color: var(--ink); padding: clamp(64px, 8vw, 124px) var(--gutter); }
     .books .eyebrow { color: #4f637e; }
     .books h2 { margin: 16px 0 0; }
-    .book-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.6vw, 40px); margin-top: clamp(28px, 4vw, 58px); }
-    .book-art { position: relative; aspect-ratio: 1 / 1.12; background: #e8edf3; }
-    .book-art img { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); width: auto; height: auto; max-width: 78%; max-height: 78%; box-shadow: 0 9px 18px #25293426; }
-    .book h3 { margin: 17px 0 7px; font-size: clamp(1.05rem, 1.8vw, 1.6rem); line-height: 1.15; letter-spacing: -.035em; }
-    .book p { color: #4d5563; line-height: 1.5; }
+    .book-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(26px, 6vw, 96px); margin-top: clamp(30px, 4vw, 62px); }
+    .book-feature { display: flex; flex-direction: column; background: #f0ded5; padding: clamp(24px, 3.1vw, 48px); }
+    .book-feature .book-art { display: grid; place-items: center; flex: 1; padding-bottom: clamp(25px, 3vw, 44px); }
+    .book-cover { --page-depth: 5px; display: block; position: relative; width: fit-content; max-width: calc(100% - var(--page-depth)); margin-inline: auto; isolation: isolate; }
+    .book-cover::before, .book-cover::after { content: ""; position: absolute; z-index: -1; }
+    .book-cover::before { inset: 2px calc(-1 * var(--page-depth)) 1px 65%; background: repeating-linear-gradient(90deg, #d3cbbd 0 1px, #f2efe6 1px 2px); border: 1px solid #2529342b; border-radius: 0 2px 2px 0; }
+    .book-cover::after { inset: 3px calc(-1 * var(--page-depth)) 0 0; box-shadow: 0 8px 17px #25293432; }
+    .book-cover img { width: auto; height: auto; max-width: 100%; max-height: 145px; border-radius: 1px; }
+    .book-feature .book-cover { --page-depth: 9px; }
+    .book-feature .book-cover img { max-width: 340px; max-height: clamp(216px, 30vw, 360px); width: 100%; }
+    .book-feature .book-cover { width: min(100% - var(--page-depth), 340px); }
+    .book-feature .book-copy { border-top: 1px solid #25293436; padding-top: 17px; }
+    .book-list { display: grid; grid-template-rows: repeat(3, auto); border-bottom: 1px solid #25293432; }
+    .book-list .book { display: grid; grid-template-columns: clamp(84px, 9vw, 126px) minmax(0, 1fr); gap: clamp(17px, 3vw, 46px); align-items: center; padding-block: 15px; border-top: 1px solid #25293432; }
+    .book h3 { margin: 0 0 7px; font-size: clamp(1.17rem, 2.15vw, 2rem); line-height: 1.07; letter-spacing: -.046em; }
+    .book-feature h3 { font-size: clamp(1.7rem, 3.5vw, 3.3rem); }
+    .book p { color: #4d5563; line-height: 1.55; }
     .books + .speaking { border-top: 1px solid #d6dde5; }
     .speaking { display: grid; grid-template-columns: minmax(0, 1.23fr) minmax(0, 1fr); align-items: center; gap: clamp(32px, 7vw, 112px); padding: clamp(66px, 8vw, 128px) var(--gutter); background: var(--light); color: var(--ink); }
     .speaking-photo img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 62% center; }
@@ -174,7 +186,7 @@
       .work, .speaking { grid-template-columns: minmax(0, 1fr); }
       .work { grid-template-areas: "heading" "list" "photo"; }
       .contact-inner { grid-template-columns: minmax(0, 1fr); }
-      .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 30px; }
+      .book-grid { grid-template-columns: minmax(0, 1fr); }
     }
     @media (max-width: 450px) {
       .nav { grid-template-columns: 1fr 1fr; gap: 0 12px; }
@@ -182,6 +194,13 @@
       .nav-group { gap: clamp(8px, 2.8vw, 14px); }
       .nav-link { font-size: .61rem; }
       .work-item { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    }
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .book-cover { transition: transform 260ms cubic-bezier(.22, 1, .36, 1); }
+      .book:hover .book-cover { transform: translateY(-5px) rotate(-1deg); }
+      .text-link .arrow, .scroll .arrow { transition: transform 240ms cubic-bezier(.22, 1, .36, 1); }
+      .text-link:hover .arrow, .text-link:focus-visible .arrow { transform: translate(3px, -2px); }
+      .scroll:hover .arrow, .scroll:focus-visible .arrow { transform: translateY(4px); }
     }
   </style>
 </head>
@@ -250,25 +269,33 @@
         <p class="eyebrow">Books &amp; writing</p>
         <h2 id="books-title">Books by Dibia</h2>
         <div class="book-grid">
-          <article class="book">
-            <figure class="book-art"><img src="assets/book-juicy.jpg" alt="" loading="lazy"></figure>
-            <h3>The Juicy Life</h3>
-            <p>A collection of more than 100 juice blends.</p>
+          <article class="book book-feature">
+            <figure class="book-art"><span class="book-cover"><img src="assets/book-juicy.jpg" alt="The Juicy Life front cover with red and black type and a fruit and juice illustration" loading="lazy"></span></figure>
+            <div class="book-copy">
+              <h3>The Juicy Life</h3>
+              <p>A collection of more than 100 juice blends.</p>
+            </div>
           </article>
-          <article class="book">
-            <figure class="book-art"><img src="assets/book-pregnancy.jpg" alt="" loading="lazy"></figure>
-            <h3>Holistic Pregnancy Journey</h3>
-            <p>Demystifying Pregnancy Myths.</p>
-          </article>
-          <article class="book">
-            <figure class="book-art"><img src="assets/book-herbal.jpg" alt="" loading="lazy"></figure>
-            <h3>My Book of Herbal Remedies</h3>
-            <p>A collection of herbal remedies.</p>
-          </article>
-          <article class="book">
-            <figure class="book-art"><img src="assets/book-detox.jpg" alt="" loading="lazy"></figure>
-            <h3>Heavy Metal Detox</h3>
-          </article>
+          <div class="book-list">
+            <article class="book">
+              <figure class="book-art"><span class="book-cover"><img src="assets/book-pregnancy.jpg" alt="Holistic Pregnancy Journey front cover with a food collage and cream, sand and green colour blocks" loading="lazy"></span></figure>
+              <div class="book-copy">
+                <h3>Holistic Pregnancy Journey</h3>
+                <p>Demystifying Pregnancy Myths.</p>
+              </div>
+            </article>
+            <article class="book">
+              <figure class="book-art"><span class="book-cover"><img src="assets/book-herbal.jpg" alt="My Book of Herbal Remedies front cover framed with herbs, vegetables and spices" loading="lazy"></span></figure>
+              <div class="book-copy">
+                <h3>My Book of Herbal Remedies</h3>
+                <p>A collection of herbal remedies.</p>
+              </div>
+            </article>
+            <article class="book">
+              <figure class="book-art"><span class="book-cover"><img src="assets/book-detox.jpg" alt="Heavy Metal Detox black front cover with the word Detox formed from fruit and vegetables" loading="lazy"></span></figure>
+              <div class="book-copy"><h3>Heavy Metal Detox</h3></div>
+            </article>
+          </div>
         </div>
       </section>
       <section class="speaking" id="speaking" aria-labelledby="speaking-title">
@@ -301,5 +328,47 @@
     <a class="brand" href="#top" aria-label="Dibia, back to top">DIBIA<span>.</span></a>
     <small>Aderonke Oluseye-Adegbami</small>
   </footer>
+  <script>
+    (() => {
+      const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (preference.matches || !Element.prototype.animate) return;
+
+      const easing = 'cubic-bezier(.22, 1, .36, 1)';
+      const active = new Set();
+      const play = (element, frames, duration, delay = 0) => {
+        if (preference.matches) return;
+        const animation = element.animate(frames, { duration, delay, easing, fill: 'backwards' });
+        active.add(animation);
+        const release = () => active.delete(animation);
+        animation.addEventListener('finish', release, { once: true });
+        animation.addEventListener('cancel', release, { once: true });
+      };
+      preference.addEventListener('change', () => {
+        if (preference.matches) active.forEach(animation => animation.cancel());
+      });
+
+      const rise = (distance, opacity) => [
+        { opacity, transform: `translateY(${distance}px)` },
+        { opacity: 1, transform: 'translateY(0)' }
+      ];
+
+      if (!location.hash || ['#top', '#main'].includes(location.hash)) {
+        play(document.querySelector('.hero-portrait img'), [{ opacity: .48, transform: 'scale(1.028)' }, { opacity: 1, transform: 'scale(1)' }], 820);
+        const heroElements = document.querySelectorAll('.hero-copy > *');
+        heroElements.forEach((element, index) => play(element, rise(16, .6), 620, 80 + index * 65));
+      }
+
+      if (!('IntersectionObserver' in window)) return;
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          play(entry.target, rise(16, .78), 570);
+        });
+      }, { threshold: .12 });
+      const sections = document.querySelectorAll('.story-copy, .story-photo, .work-heading, .work-list, .work-photo, .books h2, .book-feature, .book-list .book, .speaking-photo, .speaking-copy, .contact-inner');
+      sections.forEach(element => observer.observe(element));
+    })();
+  </script>
 </body>
 </html>
