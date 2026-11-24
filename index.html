@@ -3,372 +3,103 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Meet Dibia (Aderonke Oluseye-Adegbami), a holistic health practitioner, author and speaker. Explore her books, wellness work and speaking enquiries.">
-  <meta name="theme-color" content="#252934">
-  <title>Dibia | Holistic Health Practitioner, Author &amp; Speaker</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #252934;
-      --light: #f8f8f6;
-      --blue: #c6dcf5;
-      --muted: #d0d6df;
-      --gutter: clamp(22px, 6vw, 104px);
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body, h1, h2, p, figure { margin: 0; }
-    body { background: var(--light); color: var(--ink); }
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
-    img { display: block; width: 100%; }
-    .skip { position: absolute; z-index: 3; top: 12px; left: 12px; padding: 12px; background: white; color: var(--ink); transform: translateY(-150%); }
-    .skip:focus { transform: none; }
-    .masthead {
-      color: var(--light);
-      background: radial-gradient(ellipse at 12% 52%, #474e5e, transparent 66%), linear-gradient(110deg, #343947, #20242e 91%);
-    }
-    .nav {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 24px;
-      min-height: 86px;
-      margin-inline: var(--gutter);
-      border-bottom: 1px solid #e6edf530;
-    }
-    .nav-group { display: flex; justify-content: center; gap: clamp(20px, 5vw, 90px); }
-    .nav-link, .eyebrow, .text-link, .scroll, .contact-tab, .role {
-      font-size: .72rem;
-      font-weight: 650;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-    .nav-link { padding-block: 12px; }
-    .nav-link:hover, .scroll:hover { color: var(--blue); }
-    .brand { font-weight: 800; font-size: 2.05rem; letter-spacing: -.085em; line-height: 1; }
-    .brand span { color: var(--blue); }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-      align-items: stretch;
-      gap: clamp(32px, 5vw, 92px);
-      padding: clamp(28px, 5vh, 66px) var(--gutter) 0;
-      min-height: clamp(580px, calc(100svh - 86px), 940px);
-      position: relative;
-      isolation: isolate;
-    }
-    .hero-portrait { position: relative; align-self: stretch; min-height: 100%; overflow: hidden; background: #4a4b54; }
-    .hero-portrait img { position: absolute; height: 100%; object-fit: cover; object-position: center 24%; }
-    .hero-portrait::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, #35404f22, transparent 28% 78%, #26344822);
-      pointer-events: none;
-    }
-    .cutout .hero-portrait { background: transparent; }
-    .cutout .hero-portrait::after { content: none; }
-    .cutout .hero-portrait img { object-position: center 14%; }
-    .hero-copy { align-self: center; padding-block: 20px 108px; }
-    .eyebrow { color: var(--blue); line-height: 1.55; }
-    h1 {
-      margin: 21px 0 25px;
-      font-size: clamp(2.7rem, 5.7vw, 7rem);
-      line-height: .99;
-      letter-spacing: -.074em;
-      font-weight: 600;
-    }
-    h1 span { display: block; color: var(--blue); }
-    .intro { max-width: 39ch; color: var(--muted); font-size: clamp(1rem, 1.44vw, 1.32rem); line-height: 1.63; }
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 24px;
-      min-height: 44px;
-      margin-top: 25px;
-      border-bottom: 1px solid currentColor;
-    }
-    .text-link:hover { color: #8ab5ec; }
-    .arrow { font-size: 1.2rem; line-height: 1; }
-    .contact-tab {
-      position: absolute;
-      z-index: 1;
-      top: 43%;
-      left: 0;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      padding: 19px 11px;
-      color: #232a35;
-      background: var(--blue);
-    }
-    .contact-tab:hover { background: #edf5ff; }
-    .scroll { position: absolute; right: var(--gutter); bottom: 25px; display: flex; align-items: center; gap: 14px; padding: 10px 0; color: var(--muted); }
-    .story {
-      --story-spacing: clamp(66px, 9vw, 148px);
-      display: grid;
-      background: var(--light);
-      color: var(--ink);
-      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-      align-items: center;
-      gap: clamp(32px, 9vw, 148px);
-      padding: var(--story-spacing) var(--gutter);
-    }
-    .story .eyebrow, .role { color: #4f637e; }
-    h2 { font-weight: 600; font-size: clamp(2.5rem, 5vw, 5.4rem); line-height: 1; letter-spacing: -.068em; }
-    .story h2 { margin: 18px 0 24px; max-width: 13ch; }
-    .story-copy > p:not(.eyebrow), .contact-copy { max-width: 52ch; color: #4d5563; font-size: clamp(1rem, 1.28vw, 1.19rem); line-height: 1.74; }
-    .story-photo { align-self: end; margin-bottom: calc(-1 * var(--story-spacing)); }
-    .story-photo img { aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
-    .ventures { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 33px 0 0; padding-top: 19px; border-top: 1px solid #cbd2db; }
-    .venture { margin: 6px 0 0; font-weight: 650; font-size: clamp(1rem, 2vw, 1.45rem); }
-    .work { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); grid-template-areas: "heading list" "photo list"; align-items: start; align-content: start; gap: 28px clamp(28px, 7vw, 110px); background: #e7edf4; color: var(--ink); padding: clamp(66px, 8vw, 128px) var(--gutter); }
-    .work .eyebrow, .speaking .eyebrow { color: #4f637e; }
-    .work h2, .speaking h2 { margin: 16px 0 0; }
-    .work-heading { grid-area: heading; }
-    .work-list { grid-area: list; border-bottom: 1px solid #9daabd; }
-    .work-photo { grid-area: photo; width: min(100%, 360px); }
-    .work-photo img { height: auto; }
-    .work-item { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 16px 22px; align-items: baseline; border-top: 1px solid #9daabd; padding-block: 22px; }
-    .work-item h3 { font-size: clamp(1.32rem, 2.1vw, 1.85rem); font-weight: 620; letter-spacing: -.04em; margin: 0; }
-    .work-item p, .speaking-copy > p:not(.eyebrow) { max-width: 46ch; color: #4d5563; font-size: clamp(1rem, 1.28vw, 1.19rem); line-height: 1.68; }
-    .books { background: #f7f6f2; color: var(--ink); padding: clamp(64px, 8vw, 124px) var(--gutter); }
-    .books .eyebrow { color: #4f637e; }
-    .books h2 { margin: 16px 0 0; }
-    .book-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(26px, 6vw, 96px); margin-top: clamp(30px, 4vw, 62px); }
-    .book-feature { display: flex; flex-direction: column; background: #f0ded5; padding: clamp(24px, 3.1vw, 48px); }
-    .book-feature .book-art { display: grid; place-items: center; flex: 1; padding-bottom: clamp(25px, 3vw, 44px); }
-    .book-cover { --page-depth: 5px; display: block; position: relative; width: fit-content; max-width: calc(100% - var(--page-depth)); margin-inline: auto; isolation: isolate; }
-    .book-cover::before, .book-cover::after { content: ""; position: absolute; z-index: -1; }
-    .book-cover::before { inset: 2px calc(-1 * var(--page-depth)) 1px 65%; background: repeating-linear-gradient(90deg, #d3cbbd 0 1px, #f2efe6 1px 2px); border: 1px solid #2529342b; border-radius: 0 2px 2px 0; }
-    .book-cover::after { inset: 3px calc(-1 * var(--page-depth)) 0 0; box-shadow: 0 8px 17px #25293432; }
-    .book-cover img { width: auto; height: auto; max-width: 100%; max-height: 145px; border-radius: 1px; }
-    .book-feature .book-cover { --page-depth: 9px; }
-    .book-feature .book-cover img { max-width: 340px; max-height: clamp(216px, 30vw, 360px); width: 100%; }
-    .book-feature .book-cover { width: min(100% - var(--page-depth), 340px); }
-    .book-feature .book-copy { border-top: 1px solid #25293436; padding-top: 17px; }
-    .book-list { display: grid; grid-template-rows: repeat(3, auto); border-bottom: 1px solid #25293432; }
-    .book-list .book { display: grid; grid-template-columns: clamp(84px, 9vw, 126px) minmax(0, 1fr); gap: clamp(17px, 3vw, 46px); align-items: center; padding-block: 15px; border-top: 1px solid #25293432; }
-    .book h3 { margin: 0 0 7px; font-size: clamp(1.17rem, 2.15vw, 2rem); line-height: 1.07; letter-spacing: -.046em; }
-    .book-feature h3 { font-size: clamp(1.7rem, 3.5vw, 3.3rem); }
-    .book p { color: #4d5563; line-height: 1.55; }
-    .books + .speaking { border-top: 1px solid #d6dde5; }
-    .speaking { display: grid; grid-template-columns: minmax(0, 1.23fr) minmax(0, 1fr); align-items: center; gap: clamp(32px, 7vw, 112px); padding: clamp(66px, 8vw, 128px) var(--gutter); background: var(--light); color: var(--ink); }
-    .speaking-photo img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 62% center; }
-    .speaking-copy > p:not(.eyebrow) { margin-top: 20px; }
-    .speaking .text-link:hover { color: #315787; }
-    .contact { background: #252934; padding: clamp(54px, 7vw, 105px) var(--gutter); }
-    .contact-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; gap: clamp(28px, 7vw, 110px); max-width: 1440px; margin: auto; }
-    .contact h2 { margin: 16px 0; }
-    .contact-copy { color: var(--muted); }
-    .contact-links { border-bottom: 1px solid #eef2fa40; }
-    .contact-links .text-link { display: flex; justify-content: space-between; min-height: 60px; margin: 0; padding-block: 14px; border: 0; border-top: 1px solid #eef2fa40; line-height: 1.5; }
-    .contact-links .arrow { color: var(--blue); }
-    .footer { background: #252934; color: #f8f8f6; border-top: 1px solid #eef2fa29; padding: 24px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 15px; }
-    .footer .brand { font-size: 1.65rem; }
-    .footer small { color: var(--muted); }
-    @media (max-width: 760px) {
-      .nav { min-height: 78px; gap: 10px; }
-      .nav-group { gap: 15px; }
-      .nav-link { font-size: .65rem; letter-spacing: .09em; }
-      .brand { font-size: 1.8rem; }
-      .hero { grid-template-columns: minmax(0, 1fr); gap: 0; min-height: auto; padding-top: 24px; }
-      .hero-portrait { min-height: 0; aspect-ratio: 1 / 1; max-height: 560px; }
-      .hero-portrait img { object-position: center 19%; }
-      .cutout .hero-portrait img { object-position: center 4%; }
-      .hero-copy { padding: 29px 0 75px; }
-      h1 { font-size: clamp(2.65rem, 10vw, 4.8rem); margin-block: 13px 15px; }
-      .text-link { margin-top: 16px; }
-      .contact-tab { display: none; }
-      .scroll { bottom: 12px; }
-      .story { grid-template-columns: minmax(0, 1fr); }
-      .story-photo { width: min(100%, 475px); justify-self: center; }
-      .work, .speaking { grid-template-columns: minmax(0, 1fr); }
-      .work { grid-template-areas: "heading" "list" "photo"; }
-      .contact-inner { grid-template-columns: minmax(0, 1fr); }
-      .book-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-    @media (max-width: 450px) {
-      .nav { grid-template-columns: 1fr 1fr; gap: 0 12px; }
-      .nav > .brand { grid-column: 1 / -1; grid-row: 1; justify-self: center; margin-top: 17px; }
-      .nav-group { gap: clamp(8px, 2.8vw, 14px); }
-      .nav-link { font-size: .61rem; }
-      .work-item { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-    }
-    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-      .book-cover { transition: transform 260ms cubic-bezier(.22, 1, .36, 1); }
-      .book:hover .book-cover { transform: translateY(-5px) rotate(-1deg); }
-      .text-link .arrow, .scroll .arrow { transition: transform 240ms cubic-bezier(.22, 1, .36, 1); }
-      .text-link:hover .arrow, .text-link:focus-visible .arrow { transform: translate(3px, -2px); }
-      .scroll:hover .arrow, .scroll:focus-visible .arrow { transform: translateY(4px); }
-    }
-  </style>
+  <meta name="description" content="Meet Dibia: holistic health practitioner, author and speaker bringing everyday wellbeing to life.">
+  <meta name="theme-color" content="#d8f45b">
+  <meta property="og:title" content="Dibia — Live well. Loudly.">
+  <meta property="og:description" content="Holistic health, books and conversations for a fuller everyday life.">
+  <meta property="og:type" content="website">
+  <title>Dibia — Live well. Loudly.</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="cutout">
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="masthead" id="top">
-    <header>
-      <nav class="nav" aria-label="Main navigation">
-        <div class="nav-group"><a class="nav-link" href="#story">About</a><a class="nav-link" href="#work">Work</a><a class="nav-link" href="#books">Books</a></div>
-        <a class="brand" href="#top" aria-label="Dibia home">DIBIA<span>.</span></a>
-        <div class="nav-group"><a class="nav-link" href="#speaking">Speaking</a><a class="nav-link" href="#contact">Contact</a></div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Dibia home">DIBIA<span class="brand-mark">.</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-links"><span></span><span></span></button>
+        <div class="nav-links" id="primary-links">
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="books.html">Books</a>
+          <a class="nav-link" href="speaking.html">Speaking</a>
+        </div>
       </nav>
-    </header>
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <figure class="hero-portrait">
-          <img src="assets/dibia-blue-dress.png" alt="Dibia seated in a light blue dress" fetchpriority="high">
-        </figure>
-        <div class="hero-copy">
-          <p class="eyebrow">Aderonke Oluseye-Adegbami</p>
-          <h1 id="hero-title">Holistic health practitioner<span>Author &amp; speaker</span></h1>
-          <p class="intro">Known as Dibia, she brings holistic health into everyday life through her practice, writing and speaking.</p>
-          <a class="text-link" href="#story">Explore her story <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="header-cta button utility" href="speaking.html#contact">Let&apos;s talk <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Aderonke Oluseye-Adegbami · known as Dibia</p>
+        <h1 class="hero-title" id="hero-title">Live well.<em>Loudly.</em></h1>
+        <p class="hero-intro">A bold, whole-person approach to wellbeing — through everyday choices, honest conversations and a little more intention.</p>
+        <div class="hero-actions">
+          <a class="button utility" href="about.html">Meet Dibia <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="books.html">Explore the books <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
-        <a class="contact-tab" href="#contact">Get in touch</a>
-        <a class="scroll" href="#story">Scroll to explore <span class="arrow" aria-hidden="true">↓</span></a>
-      </section>
-      <section class="story" id="story" aria-labelledby="story-title">
-        <div class="story-copy">
-          <p class="eyebrow">Meet Dibia</p>
-          <h2 id="story-title">Wellbeing in everyday life</h2>
-          <p>Aderonke Oluseye-Adegbami, known as Dibia, is a holistic health practitioner, author and speaker. Her work connects whole-person wellbeing with the choices we make every day, from how we eat to the habits that shape how we care for ourselves.</p>
-          <dl class="ventures">
-            <div><dt class="role">Founder</dt><dd class="venture">FD Naturales</dd></div>
-            <div><dt class="role">Cofounder</dt><dd class="venture">ISIM&amp;MISI</dd></div>
-          </dl>
+      </div>
+      <figure class="hero-art">
+        <span class="image-caption">Wellbeing, without the whisper</span>
+        <img src="assets/dibia-blue-dress.png" alt="Dibia seated in a light blue dress" fetchpriority="high">
+        <span class="hero-stamp" aria-hidden="true">Care for<br>the whole<br>you</span>
+      </figure>
+    </section>
+
+    <div class="ticker" aria-label="Holistic health, books, everyday wellbeing and speaking">
+      <div class="ticker-track" aria-hidden="true">
+        <div class="ticker-group"><span class="ticker-item">Holistic health</span><span class="ticker-item">Books &amp; writing</span><span class="ticker-item">Everyday wellbeing</span><span class="ticker-item">Speaking</span></div>
+        <div class="ticker-group"><span class="ticker-item">Holistic health</span><span class="ticker-item">Books &amp; writing</span><span class="ticker-item">Everyday wellbeing</span><span class="ticker-item">Speaking</span></div>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="practice-title">
+      <div class="section-heading" data-reveal>
+        <div><p class="eyebrow">The everyday practice</p><h2 id="practice-title">Wellbeing that meets you where you are.</h2></div>
+        <p class="section-intro">No grand gestures required. Dibia connects whole-person wellbeing with the small choices and habits that shape daily life.</p>
+      </div>
+      <div class="feature-grid">
+        <figure class="feature-image" data-reveal><img src="assets/dibia-fitness.jpg" alt="Dibia smiling beside an exercise ball" loading="lazy"></figure>
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">A grounded point of view</p>
+          <h2 id="practice-feature-title">Health is a way of showing up.</h2>
+          <p>From nutrition to the habits that carry us through the day, Dibia&apos;s work makes space for a more considered relationship with wellbeing.</p>
+          <a class="text-link" href="about.html">Get to know her work <span class="arrow" aria-hidden="true">↗</span></a>
+          <div class="feature-note"><strong>Practice. Perspective. Possibility.</strong><span>One day at a time.</span></div>
         </div>
-        <figure class="story-photo">
-          <img src="assets/dibia-smiling.png" alt="Aderonke Oluseye-Adegbami smiling in a pale blue dress" loading="lazy">
-        </figure>
-      </section>
-      <section class="work" id="work" aria-labelledby="work-title">
-        <div class="work-heading">
-          <p class="eyebrow">Her work</p>
-          <h2 id="work-title">Practice, books and ventures</h2>
-        </div>
-        <div class="work-list">
-          <article class="work-item">
-            <h3>Holistic health practice</h3>
-            <p>Dibia’s approach to wellbeing includes nutrition and the habits that shape daily life.</p>
-          </article>
-          <article class="work-item">
-            <h3>Books &amp; writing</h3>
-            <p><a href="#books"><u>Explore her books</u></a> on juicing, pregnancy and herbal remedies.</p>
-          </article>
-          <article class="work-item">
-            <h3>Business ventures</h3>
-            <p>Dibia is the founder of FD Naturales and cofounder of ISIM&amp;MISI.</p>
-          </article>
-        </div>
-        <figure class="work-photo">
-          <img src="assets/dibia-fitness.jpg" alt="Dibia smiling beside a blue exercise ball in workout clothes" width="900" height="720" loading="lazy">
-        </figure>
-      </section>
-      <section class="books" id="books" aria-labelledby="books-title">
-        <p class="eyebrow">Books &amp; writing</p>
-        <h2 id="books-title">Books by Dibia</h2>
-        <div class="book-grid">
-          <article class="book book-feature">
-            <figure class="book-art"><span class="book-cover"><img src="assets/book-juicy.jpg" alt="The Juicy Life front cover with red and black type and a fruit and juice illustration" loading="lazy"></span></figure>
-            <div class="book-copy">
-              <h3>The Juicy Life</h3>
-              <p>A collection of more than 100 juice blends.</p>
-            </div>
-          </article>
-          <div class="book-list">
-            <article class="book">
-              <figure class="book-art"><span class="book-cover"><img src="assets/book-pregnancy.jpg" alt="Holistic Pregnancy Journey front cover with a food collage and cream, sand and green colour blocks" loading="lazy"></span></figure>
-              <div class="book-copy">
-                <h3>Holistic Pregnancy Journey</h3>
-                <p>Demystifying Pregnancy Myths.</p>
-              </div>
-            </article>
-            <article class="book">
-              <figure class="book-art"><span class="book-cover"><img src="assets/book-herbal.jpg" alt="My Book of Herbal Remedies front cover framed with herbs, vegetables and spices" loading="lazy"></span></figure>
-              <div class="book-copy">
-                <h3>My Book of Herbal Remedies</h3>
-                <p>A collection of herbal remedies.</p>
-              </div>
-            </article>
-            <article class="book">
-              <figure class="book-art"><span class="book-cover"><img src="assets/book-detox.jpg" alt="Heavy Metal Detox black front cover with the word Detox formed from fruit and vegetables" loading="lazy"></span></figure>
-              <div class="book-copy"><h3>Heavy Metal Detox</h3></div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section class="speaking" id="speaking" aria-labelledby="speaking-title">
-        <figure class="speaking-photo">
-          <img src="assets/dibia-speaking.jpg" alt="Dibia speaking into a microphone at a lectern" loading="lazy">
-        </figure>
-        <div class="speaking-copy">
-          <p class="eyebrow">Speaking</p>
-          <h2 id="speaking-title">Invite Dibia to speak</h2>
-          <p>Dibia speaks about holistic health, nutrition and everyday wellbeing. If you’re planning an event, tell her about your audience and what you’d like them to take away.</p>
-          <a class="text-link" href="mailto:?subject=Speaking%20invitation%20for%20Dibia&amp;body=Event%20name%3A%0D%0ADate%20and%20location%3A%0D%0AAudience%3A%0D%0ATopic%20or%20goal%3A%0D%0AYour%20name%20and%20organisation%3A">Draft a speaking invitation <span class="arrow" aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-      <section class="contact" id="contact" aria-labelledby="contact-title">
-        <div class="contact-inner">
-          <div>
-            <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">Get in touch</h2>
-            <p class="contact-copy">Planning an event, working on an interview or exploring a collaboration? Tell Dibia a little about what you have in mind.</p>
-          </div>
-          <div class="contact-links">
-            <a class="text-link" href="#speaking">Invite Dibia to speak <span class="arrow" aria-hidden="true">↑</span></a>
-            <a class="text-link" href="mailto:?subject=Media%20or%20collaboration%20enquiry%20for%20Dibia&amp;body=Your%20name%20and%20organisation%3A%0D%0AWhat%20you%20have%20in%20mind%3A%0D%0ATimeline%3A">Draft a media or collaboration enquiry <span class="arrow" aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-  <footer class="footer">
-    <a class="brand" href="#top" aria-label="Dibia, back to top">DIBIA<span>.</span></a>
-    <small>Aderonke Oluseye-Adegbami</small>
+      </div>
+    </section>
+
+    <section class="section book-preview" aria-labelledby="books-title">
+      <div class="section-heading" data-reveal>
+        <div><p class="eyebrow">Books &amp; writing</p><h2 id="books-title">Good things to put on your shelf.</h2></div>
+        <p class="section-intro">Explore Dibia&apos;s writing on juice blends, pregnancy and herbal remedies.</p>
+      </div>
+      <div class="book-cards">
+        <a class="book-card" href="books.html#juicy-life" data-reveal><figure><img src="assets/book-juicy.jpg" alt="The Juicy Life book cover" loading="lazy"></figure><h3>The Juicy Life</h3><p>More than 100 juice blends.</p></a>
+        <a class="book-card" href="books.html#pregnancy" data-reveal><figure><img src="assets/book-pregnancy.jpg" alt="Holistic Pregnancy Journey book cover" loading="lazy"></figure><h3>Holistic Pregnancy Journey</h3><p>Demystifying pregnancy myths.</p></a>
+        <a class="book-card" href="books.html#herbal-remedies" data-reveal><figure><img src="assets/book-herbal.jpg" alt="My Book of Herbal Remedies cover" loading="lazy"></figure><h3>My Book of Herbal Remedies</h3><p>A collection of herbal remedies.</p></a>
+        <a class="book-card" href="books.html#detox" data-reveal><figure><img src="assets/book-detox.jpg" alt="Heavy Metal Detox book cover" loading="lazy"></figure><h3>Heavy Metal Detox</h3><p>A guide to detox.</p></a>
+      </div>
+      <a class="text-link book-preview-link" href="books.html">See the full collection <span class="arrow" aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="speaking-band" aria-labelledby="speaking-title">
+      <figure class="speaking-band-image"><img src="assets/dibia-speaking.jpg" alt="Dibia speaking into a microphone at a lectern" loading="lazy"></figure>
+      <div class="speaking-band-copy" data-reveal>
+        <p class="eyebrow">On stage &amp; in conversation</p>
+        <h2 id="speaking-title">Let&apos;s make room for a better conversation.</h2>
+        <p>Invite Dibia to speak about holistic health, nutrition and everyday wellbeing.</p>
+        <a class="button button-light utility" href="speaking.html">Explore speaking <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html" aria-label="Dibia, back to home">DIBIA<span class="brand-mark">.</span></a>
+    <p class="footer-note">Aderonke Oluseye-Adegbami<br>Whole-person wellbeing, in real life.</p>
+    <a class="footer-top" href="#main">Back to top ↑</a>
   </footer>
-  <script>
-    (() => {
-      const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (preference.matches || !Element.prototype.animate) return;
-
-      const easing = 'cubic-bezier(.22, 1, .36, 1)';
-      const active = new Set();
-      const play = (element, frames, duration, delay = 0) => {
-        if (preference.matches) return;
-        const animation = element.animate(frames, { duration, delay, easing, fill: 'backwards' });
-        active.add(animation);
-        const release = () => active.delete(animation);
-        animation.addEventListener('finish', release, { once: true });
-        animation.addEventListener('cancel', release, { once: true });
-      };
-      preference.addEventListener('change', () => {
-        if (preference.matches) active.forEach(animation => animation.cancel());
-      });
-
-      const rise = (distance, opacity) => [
-        { opacity, transform: `translateY(${distance}px)` },
-        { opacity: 1, transform: 'translateY(0)' }
-      ];
-
-      if (!location.hash || ['#top', '#main'].includes(location.hash)) {
-        play(document.querySelector('.hero-portrait img'), [{ opacity: .48, transform: 'scale(1.028)' }, { opacity: 1, transform: 'scale(1)' }], 820);
-        const heroElements = document.querySelectorAll('.hero-copy > *');
-        heroElements.forEach((element, index) => play(element, rise(16, .6), 620, 80 + index * 65));
-      }
-
-      if (!('IntersectionObserver' in window)) return;
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          observer.unobserve(entry.target);
-          play(entry.target, rise(16, .78), 570);
-        });
-      }, { threshold: .12 });
-      const sections = document.querySelectorAll('.story-copy, .story-photo, .work-heading, .work-list, .work-photo, .books h2, .book-feature, .book-list .book, .speaking-photo, .speaking-copy, .contact-inner');
-      sections.forEach(element => observer.observe(element));
-    })();
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
